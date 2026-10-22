@@ -23,7 +23,7 @@
   background-color: var(--surface);
 }
 
-.topic-filter p {
+.topic-filter h2 {
   margin: 0 0 0.75rem;
 
   font-size: 0.875rem;
