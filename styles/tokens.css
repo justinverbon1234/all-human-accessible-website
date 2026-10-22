@@ -9,5 +9,18 @@
   --off-white: #f7f6f2;
   --gray: #666661;
   --light-gray: #e8e7e2;
+  --page-background: var(--off-white);
+  --surface: var(--off-white);
+  --text: var(--black);
+  --muted-text: var(--gray);
+  --border: var(--light-gray);
   --page-padding: 1.5rem;
+}
+
+[data-theme="dark"] {
+  --page-background: #121212;
+  --surface: #1d1d1d;
+  --text: #f7f6f2;
+  --muted-text: #c3c2bc;
+  --border: #454540;
 }

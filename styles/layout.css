@@ -20,7 +20,7 @@
 .columns-intro,
 .topic-filter,
 .more-columns {
-  background-color: var(--off-white);
+  background-color: var(--surface);
 }
 
 .topic-filter p {

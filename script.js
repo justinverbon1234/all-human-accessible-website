@@ -1,11 +1,24 @@
 const header = document.querySelector(".site-header");
 const menuToggle = document.querySelector(".menu-toggle");
 const searchToggle = document.querySelector(".search-toggle");
+const themeToggle = document.querySelector(".theme-toggle");
 const nav = document.querySelector(".main-nav");
 const searchInput = document.querySelector(".site-search input");
 const isDesktop = window.matchMedia("(min-width: 768px)");
+const storedTheme = localStorage.getItem("theme");
 
 const isOpen = (name) => header.classList.contains(name);
+
+function setTheme(theme) {
+  const isDark = theme === "dark";
+
+  document.documentElement.dataset.theme = isDark ? "dark" : "light";
+  themeToggle.setAttribute("aria-pressed", String(isDark));
+  themeToggle.querySelector(".visually-hidden").textContent = isDark
+    ? "Lichte modus"
+    : "Donkere modus";
+  themeToggle.querySelector("[aria-hidden]").textContent = isDark ? "☀" : "☾";
+}
 
 function setMenu(open) {
   header.classList.toggle("is-menu-open", open);
@@ -18,6 +31,15 @@ function setSearch(open) {
 
   if (open) searchInput.focus();
 }
+
+setTheme(storedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+
+themeToggle.addEventListener("click", () => {
+  const theme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+
+  setTheme(theme);
+  localStorage.setItem("theme", theme);
+});
 
 menuToggle.addEventListener("click", () => {
   const open = !isOpen("is-menu-open");
