@@ -6,19 +6,20 @@
   justify-content: space-between;
 
   padding: 1.25rem var(--page-padding);
-
-  background-color: var(--off-white);
 }
 
 .columns-intro {
   padding: 2rem var(--page-padding) 1.5rem;
-
-  background-color: var(--off-white);
 }
 
 .topic-filter {
   padding: 0 var(--page-padding) 1.5rem;
+}
 
+.site-header,
+.columns-intro,
+.topic-filter,
+.more-columns {
   background-color: var(--off-white);
 }
 
@@ -48,6 +49,4 @@
 
 .more-columns {
   padding: 2rem var(--page-padding);
-
-  background-color: var(--off-white);
 }

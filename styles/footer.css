@@ -24,6 +24,8 @@
   padding-top: 1rem;
 
   border-top: 1px solid rgb(255 255 255 / 30%);
+  color: rgb(255 255 255 / 80%);
+  font-size: 0.75rem;
 }
 
 .footer-brand {
@@ -74,11 +76,6 @@
 .footer-bottom a:focus-visible {
   text-decoration: underline;
   text-underline-offset: 0.2em;
-}
-
-.footer-bottom {
-  color: rgb(255 255 255 / 80%);
-  font-size: 0.75rem;
 }
 
 .footer-bottom p {
