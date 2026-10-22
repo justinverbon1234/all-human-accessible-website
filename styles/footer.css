@@ -68,12 +68,7 @@
   font-size: 0.875rem;
 }
 
-.footer-nav a:hover,
-.footer-nav a:focus-visible,
-.footer-logo:hover,
-.footer-logo:focus-visible,
-.footer-bottom a:hover,
-.footer-bottom a:focus-visible {
+.site-footer a:is(:hover, :focus-visible) {
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }

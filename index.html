@@ -4,6 +4,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nieuwe columns over studeren, de HvA en alles eromheen.">
 
     <title>Columns | HvanA</title>
 
@@ -12,6 +13,10 @@
     <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/components.css">
     <link rel="stylesheet" href="styles/footer.css">
+
+    <script>
+      document.documentElement.classList.replace("no-js", "js");
+    </script>
   </head>
 
 <body>
@@ -20,54 +25,54 @@
   <header class="site-header" id="top">
     <a href="index.html" class="logo">HvanA</a>
 
-    <nav class="main-nav" id="main-menu">
-      <ul>
-        <li><a href="#">Nieuws</a></li>
-        <li><a href="#">Video</a></li>
-        <li><a href="#">Columns</a></li>
-        <li><a href="#">Opinie</a></li>
-        <li><a href="#">Podcast</a></li>
-      </ul>
-    </nav>
-
-    <div class="header-actions">
-      <button class="search-toggle" type="button">
-        <svg class="icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" focusable="false">
-          <circle cx="11" cy="11" r="7" />
-          <path d="m20 20-3.5-3.5" />
-        </svg>
-        <span class="visually-hidden">Zoek</span>
-      </button>
-
-      <button class="theme-toggle" type="button" aria-pressed="false">
-        <span aria-hidden="true">☾</span>
-        <span class="visually-hidden">Donkere modus</span>
-      </button>
-
-      <button class="menu-toggle" type="button">
-        <svg class="icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" focusable="false">
+    <details class="site-nav" name="header">
+      <summary class="header-toggle">
+        <svg class="icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
           <path class="menu-line menu-line-top" d="M4 7h16" />
           <path class="menu-line menu-line-mid" d="M4 12h16" />
           <path class="menu-line menu-line-bottom" d="M4 17h16" />
         </svg>
         <span class="visually-hidden">Menu</span>
-      </button>
-    </div>
+      </summary>
 
-    <search class="site-search" id="site-search">
-      <form>
-        <label class="visually-hidden" for="search-input">Zoek in HvanA</label>
-        <input id="search-input" type="search" name="q" placeholder="Zoek in HvanA">
-        <button type="submit">Zoek</button>
-      </form>
-    </search>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#">Nieuws</a></li>
+          <li><a href="#">Video</a></li>
+          <li><a href="#">Columns</a></li>
+          <li><a href="#">Opinie</a></li>
+          <li><a href="#">Podcast</a></li>
+        </ul>
+      </nav>
+    </details>
+
+    <details class="site-search" name="header">
+      <summary class="header-toggle">
+        <svg class="icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="11" cy="11" r="7" />
+          <path d="m20 20-3.5-3.5" />
+        </svg>
+        <span class="visually-hidden">Zoek</span>
+      </summary>
+
+      <search class="search-panel">
+        <form>
+          <label class="visually-hidden" for="search-input">Zoek in HvanA</label>
+          <input id="search-input" type="search" name="q" placeholder="Zoek in HvanA">
+          <button type="submit">Zoek</button>
+        </form>
+      </search>
+    </details>
+
+    <input type="checkbox" id="theme-toggle" class="theme-toggle">
+    <label class="visually-hidden" for="theme-toggle">Donkere modus</label>
   </header>
 
   <main>
     <section class="columns-intro">
       <p class="section-label">Columns</p>
 
-      <h1 id="page-title">Persoonlijke stemmen, heldere standpunten.</h1>
+      <h1 id="page-title" tabindex="-1">Persoonlijke stemmen, heldere standpunten.</h1>
 
       <p>
         Nieuwe columns over studeren, de HvA en alles eromheen.
@@ -93,8 +98,10 @@
       </p>
 
       <img
-        src="assets/turkse vrouw.png"
+        src="assets/aynur-can.webp"
         alt="Aynur Can op de HvA-campus"
+        width="1200"
+        height="804"
       >
 
       <p class="featured-author">Aynur Can</p>
@@ -125,8 +132,11 @@
       <article class="column-card education">
         <a href="#">
           <img
-            src="assets/buiten vrouw.png"
+            src="assets/columniste-campus.webp"
             alt="Columniste op de HvA-campus"
+            width="1200"
+            height="659"
+            loading="lazy"
           >
 
           <div class="column-card-content">
@@ -147,8 +157,11 @@
       <article class="column-card students">
         <a href="#">
           <img
-            src="assets/man met krullen.png"
+            src="assets/naim-asbaa.webp"
             alt="Naïm Asbâa in de studieruimte"
+            width="1200"
+            height="667"
+            loading="lazy"
           >
 
           <div class="column-card-content">
@@ -169,8 +182,11 @@
       <article class="column-card tech">
         <a href="#">
           <img
-            src="assets/gebouw.png"
+            src="assets/hva-gebouw.webp"
             alt="HvA-gebouw in de steigers"
+            width="1200"
+            height="786"
+            loading="lazy"
           >
 
           <div class="column-card-content">
@@ -206,7 +222,7 @@
         <ul>
           <li><a href="#">Auteurs</a></li>
           <li><a href="#">Over HvanA</a></li>
-          <li><a href="#">Colofon</a></li>
+          <li><a href="#">Locatie</a></li>
           <li><a href="#">Privacyverklaring</a></li>
           <li><a href="#">Cookievoorkeuren</a></li>
           <li><a href="#">Adverteren</a></li>

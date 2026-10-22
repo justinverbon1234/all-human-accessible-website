@@ -1,4 +1,6 @@
 :root {
+  color-scheme: light;
+
   --blue: #0851d8;
   --yellow: #fed204;
   --pink: #ff88c0;
@@ -9,18 +11,55 @@
   --off-white: #f7f6f2;
   --gray: #666661;
   --light-gray: #e8e7e2;
+
+  /* Text-safe variants of the bright brand colors (pass WCAG AA on light surfaces) */
+  --blue-text: var(--blue);
+  --orange-text: #c2410c;
+  --pink-text: #be185d;
+
   --page-background: var(--off-white);
   --surface: var(--off-white);
   --text: var(--black);
   --muted-text: var(--gray);
   --border: var(--light-gray);
+  --hover: var(--light-gray);
+
   --page-padding: 1.5rem;
 }
 
-[data-theme="dark"] {
+/* Dark mode: CSS owns the default via prefers-color-scheme. The theme
+   checkbox applies dark mode via :has() even without JavaScript; JS only
+   stores the choice as data-theme so it survives a page reload. */
+[data-theme="dark"],
+html:has(.theme-toggle:checked) {
+  color-scheme: dark;
+
   --page-background: #121212;
   --surface: #1d1d1d;
   --text: #f7f6f2;
   --muted-text: #c3c2bc;
   --border: #454540;
+  --hover: #2a2a28;
+
+  /* The bright brand colors pass contrast on dark backgrounds */
+  --blue-text: #8ab4ff;
+  --orange-text: var(--orange);
+  --pink-text: var(--pink);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
+    --page-background: #121212;
+    --surface: #1d1d1d;
+    --text: #f7f6f2;
+    --muted-text: #c3c2bc;
+    --border: #454540;
+    --hover: #2a2a28;
+
+    --blue-text: #8ab4ff;
+    --orange-text: var(--orange);
+    --pink-text: var(--pink);
+  }
 }

@@ -3,55 +3,79 @@
   font-size: 1.75rem;
   font-weight: 700;
   line-height: 1;
-  color: var(--blue);
+  color: var(--blue-text);
 }
 
-.header-actions {
-  display: flex;
-  gap: 0.25rem;
-}
-
-.header-actions button {
+/* Header toggles: the <summary> of each <details> and the theme checkbox.
+   The icon buttons keep the same styling as before. */
+.header-toggle,
+.theme-toggle {
   display: grid;
   place-items: center;
   width: 2.75rem;
   height: 2.75rem;
   padding: 0;
+  margin: 0;
   border: 0;
   border-radius: 50%;
   background: none;
   color: inherit;
   cursor: pointer;
+  list-style: none;
 }
 
-.header-actions button:hover {
-  background: var(--surface);
-}
-
-/* No-JavaScript fallback */
-.no-js .site-header {
-  display: block;
-}
-
-.no-js .header-actions {
+.header-toggle::-webkit-details-marker {
   display: none;
 }
 
-.no-js .main-nav,
-.no-js .site-search {
-  position: static;
-  display: block;
-  padding: 0.75rem var(--page-padding) 1rem;
-  border-bottom: 1px solid var(--border);
+.header-toggle:hover,
+.theme-toggle:hover {
+  background: var(--hover);
 }
 
-.no-js .main-nav {
-  padding-top: 0.5rem;
+/* Header layout: search and theme sit on the right, the menu toggle last.
+   On desktop the nav moves next to the logo (see the media query). */
+.site-nav {
+  order: 3;
 }
 
-/* Navigation and search */
-.main-nav,
 .site-search {
+  order: 1;
+  margin-left: auto;
+}
+
+/* Theme toggle: a native checkbox. The input itself is the button and the
+   icon is drawn with CSS, so no ARIA is needed for the state or the icon.
+   The second content line gives the icon an empty accessible alternative
+   in browsers that support it. */
+.theme-toggle {
+  appearance: none;
+  order: 2;
+  font-size: 1.125rem;
+}
+
+.theme-toggle::before {
+  content: "☾";
+  content: "☾" / "";
+}
+
+.theme-toggle:checked::before,
+[data-theme="dark"] .theme-toggle::before {
+  content: "☀";
+  content: "☀" / "";
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle::before {
+    content: "☀";
+    content: "☀" / "";
+  }
+}
+
+/* Navigation and search: native <details> panels. The [open] attribute
+   drives visibility, so opening and closing work without JavaScript. */
+.main-nav,
+.search-panel {
   display: none;
   position: absolute;
   inset: 100% 0 auto;
@@ -65,8 +89,8 @@
   padding-top: 0.5rem;
 }
 
-.site-header.is-menu-open .main-nav,
-.site-header.is-search-open .site-search {
+.site-nav[open] .main-nav,
+.site-search[open] .search-panel {
   display: block;
   animation: panel-drop 0.2s ease-out;
 }
@@ -96,9 +120,12 @@
 .site-search input,
 .site-search button[type="submit"],
 .topic-filter button {
-  font: inherit;
-  cursor: pointer;
   border-radius: 2rem;
+}
+
+.site-search button[type="submit"],
+.topic-filter button {
+  cursor: pointer;
 }
 
 .site-search input {
@@ -127,15 +154,15 @@
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.site-header.is-menu-open .menu-line-top {
+.site-nav[open] .menu-line-top {
   transform: translateY(5px) rotate(45deg);
 }
 
-.site-header.is-menu-open .menu-line-mid {
+.site-nav[open] .menu-line-mid {
   opacity: 0;
 }
 
-.site-header.is-menu-open .menu-line-bottom {
+.site-nav[open] .menu-line-bottom {
   transform: translateY(-5px) rotate(-45deg);
 }
 
@@ -147,8 +174,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .site-header.is-menu-open .main-nav,
-  .site-header.is-search-open .site-search {
+  .site-nav[open] .main-nav,
+  .site-search[open] .search-panel {
     animation: none;
   }
 
@@ -157,31 +184,46 @@
   }
 }
 
-/* Desktop navigation */
+/* Desktop navigation: JS forces the menu <details> open, so the nav
+   becomes a static row and its toggle button disappears. Without JS the
+   summary stays visible and works as a native disclosure toggle. */
 @media (min-width: 768px) {
-  .main-nav {
+  .js .site-nav {
+    order: 1;
+  }
+
+  .site-search {
+    order: 2;
+  }
+
+  .theme-toggle {
+    order: 3;
+  }
+
+  .js .site-nav summary {
+    display: none;
+  }
+
+  .js .site-nav .main-nav {
     position: static;
     display: block;
     padding: 0;
     border-bottom: 0;
+    animation: none;
   }
 
-  .main-nav ul {
+  .js .main-nav ul {
     flex-direction: row;
     gap: 1.25rem;
   }
 
-  .main-nav li + li {
+  .js .main-nav li + li {
     border-top: 0;
   }
 
-  .main-nav a {
+  .js .main-nav a {
     padding: 0;
     font-size: 0.75rem;
-  }
-
-  .menu-toggle {
-    display: none;
   }
 }
 
@@ -191,7 +233,7 @@
   align-items: center;
   gap: 0.5rem;
   margin: 0 0 1rem;
-  color: var(--orange);
+  color: var(--orange-text);
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -259,7 +301,7 @@
 }
 
 .featured-meta span {
-  color: var(--orange);
+  color: var(--orange-text);
 }
 
 .featured-column img {
@@ -290,7 +332,7 @@
 .featured-link {
   display: inline-block;
   margin-top: 1.25rem;
-  color: var(--orange);
+  color: var(--orange-text);
   font-weight: 700;
 }
 
@@ -302,7 +344,7 @@
 }
 
 .section-heading a {
-  color: var(--blue);
+  color: var(--blue-text);
   font-size: 0.875rem;
   font-weight: 700;
 }
@@ -316,15 +358,18 @@
 /* Column cards */
 .column-card {
   --accent: var(--orange);
+  --accent-text: var(--orange-text);
   border-top: 1px solid var(--border);
 }
 
 .column-card.students {
   --accent: var(--pink);
+  --accent-text: var(--pink-text);
 }
 
 .column-card.tech {
   --accent: var(--blue);
+  --accent-text: var(--blue-text);
 }
 
 .column-card a {
@@ -343,7 +388,7 @@
 
 .column-category {
   margin: 0 0 0.25rem;
-  color: var(--accent);
+  color: var(--accent-text);
   font-size: 0.6875rem;
   font-weight: 700;
   text-transform: uppercase;

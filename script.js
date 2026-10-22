@@ -1,91 +1,64 @@
-document.documentElement.classList.replace("no-js", "js");
-
 const themeToggle = document.querySelector(".theme-toggle");
-const header = document.querySelector(".site-header");
-const menuToggle = document.querySelector(".menu-toggle");
-const searchToggle = document.querySelector(".search-toggle");
-const nav = document.querySelector(".main-nav");
-const searchInput = document.querySelector(".site-search input");
-const isDesktop = window.matchMedia("(min-width: 768px)");
 const storedTheme = localStorage.getItem("theme");
 
-const isOpen = (name) => header.classList.contains(name);
-
-function setTheme(theme) {
-  const isDark = theme === "dark";
-
-  document.documentElement.dataset.theme = isDark ? "dark" : "light";
-  themeToggle.setAttribute("aria-pressed", String(isDark));
-  themeToggle.querySelector(".visually-hidden").textContent = isDark
-    ? "Lichte modus"
-    : "Donkere modus";
-  themeToggle.querySelector("[aria-hidden]").textContent = isDark ? "☀" : "☾";
+/* Theme: CSS owns the default (prefers-color-scheme) and applies dark mode
+   via :has() when the checkbox is checked, so this works without JavaScript.
+   JS only remembers the choice in localStorage and syncs the checkbox. */
+if (storedTheme) {
+  document.documentElement.dataset.theme = storedTheme;
+  themeToggle.checked = storedTheme === "dark";
 }
 
-setTheme(storedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+themeToggle.addEventListener("change", () => {
+  const theme = themeToggle.checked ? "dark" : "light";
 
-themeToggle.addEventListener("click", () => {
-  const theme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
-
-  setTheme(theme);
+  document.documentElement.dataset.theme = theme;
   localStorage.setItem("theme", theme);
 });
 
-function setMenu(open) {
-  header.classList.toggle("is-menu-open", open);
-  menuToggle.setAttribute("aria-expanded", String(open));
-}
+/* Menu and search are native <details> elements: opening, closing, the
+   "only one open at a time" behavior and the expanded state are built in.
+   JS only adds what HTML does not have: focus for the search input,
+   Escape and outside click to close, and keeping the menu open on
+   desktop, where its toggle button is hidden. */
+const menu = document.querySelector(".site-nav");
+const search = document.querySelector(".site-search");
+const searchInput = document.querySelector(".site-search input");
+const isDesktop = window.matchMedia("(min-width: 768px)");
 
-function setSearch(open) {
-  header.classList.toggle("is-search-open", open);
-  searchToggle.setAttribute("aria-expanded", String(open));
+const syncMenu = ({ matches }) => {
+  menu.open = matches;
+};
 
-  if (open) searchInput.focus();
-}
+syncMenu(isDesktop);
+isDesktop.addEventListener("change", syncMenu);
 
-menuToggle.addEventListener("click", () => {
-  const open = !isOpen("is-menu-open");
-
-  setSearch(false);
-  setMenu(open);
-
-  if (open) nav.querySelector("a").focus();
+search.addEventListener("toggle", () => {
+  if (search.open) searchInput.focus();
 });
 
-searchToggle.addEventListener("click", () => {
-  const open = !isOpen("is-search-open");
+menu.querySelector(".main-nav").addEventListener("click", (event) => {
+  if (!event.target.closest("a") || isDesktop.matches) return;
 
-  setMenu(false);
-  setSearch(open);
-});
-
-nav.addEventListener("click", () => {
-  const wasOpen = isOpen("is-menu-open");
-
-  setMenu(false);
-
-  if (wasOpen) menuToggle.focus();
-});
-
-document.addEventListener("click", (event) => {
-  if (header.contains(event.target)) return;
-
-  setMenu(false);
-  setSearch(false);
+  menu.open = false;
 });
 
 document.addEventListener("keydown", (event) => {
   if (event.key !== "Escape") return;
 
-  if (isOpen("is-search-open")) {
-    setSearch(false);
-    searchToggle.focus();
-  } else if (isOpen("is-menu-open")) {
-    setMenu(false);
-    menuToggle.focus();
+  if (search.open) {
+    search.open = false;
+    search.querySelector("summary").focus();
+  } else if (menu.open && !isDesktop.matches) {
+    menu.open = false;
+    menu.querySelector("summary").focus();
   }
 });
 
-isDesktop.addEventListener("change", (event) => {
-  if (event.matches) setMenu(false);
+document.addEventListener("click", (event) => {
+  if (event.target.closest(".site-header")) return;
+
+  search.open = false;
+
+  if (!isDesktop.matches) menu.open = false;
 });
