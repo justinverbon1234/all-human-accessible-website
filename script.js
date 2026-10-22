@@ -1,7 +1,9 @@
+document.documentElement.classList.replace("no-js", "js");
+
+const themeToggle = document.querySelector(".theme-toggle");
 const header = document.querySelector(".site-header");
 const menuToggle = document.querySelector(".menu-toggle");
 const searchToggle = document.querySelector(".search-toggle");
-const themeToggle = document.querySelector(".theme-toggle");
 const nav = document.querySelector(".main-nav");
 const searchInput = document.querySelector(".site-search input");
 const isDesktop = window.matchMedia("(min-width: 768px)");
@@ -20,6 +22,15 @@ function setTheme(theme) {
   themeToggle.querySelector("[aria-hidden]").textContent = isDark ? "☀" : "☾";
 }
 
+setTheme(storedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+
+themeToggle.addEventListener("click", () => {
+  const theme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+
+  setTheme(theme);
+  localStorage.setItem("theme", theme);
+});
+
 function setMenu(open) {
   header.classList.toggle("is-menu-open", open);
   menuToggle.setAttribute("aria-expanded", String(open));
@@ -31,15 +42,6 @@ function setSearch(open) {
 
   if (open) searchInput.focus();
 }
-
-setTheme(storedTheme || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
-
-themeToggle.addEventListener("click", () => {
-  const theme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
-
-  setTheme(theme);
-  localStorage.setItem("theme", theme);
-});
 
 menuToggle.addEventListener("click", () => {
   const open = !isOpen("is-menu-open");
