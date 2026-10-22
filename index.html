@@ -17,7 +17,9 @@
   <!-- Header -->
 
 <body>
-  <header class="site-header">
+  <a class="skip-link" href="#page-title">Ga naar hoofdinhoud</a>
+
+  <header class="site-header" id="top">
     <a href="index.html" class="logo">HvanA</a>
 
     <nav class="main-nav" id="main-menu">
@@ -31,7 +33,7 @@
     </nav>
 
     <div class="header-actions">
-      <button class="search-toggle" type="button">
+      <button class="search-toggle" type="button" aria-expanded="false" aria-controls="site-search">
         <svg class="icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" focusable="false">
           <circle cx="11" cy="11" r="7" />
           <path d="m20 20-3.5-3.5" />
@@ -39,8 +41,8 @@
         <span class="visually-hidden">Zoek</span>
       </button>
 
-      <button class="menu-toggle" type="button">
-        <svg class="icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"focusable="false">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu">
+        <svg class="icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" focusable="false">
           <path class="menu-line menu-line-top" d="M4 7h16" />
           <path class="menu-line menu-line-mid" d="M4 12h16" />
           <path class="menu-line menu-line-bottom" d="M4 17h16" />
@@ -182,10 +184,6 @@
           </div>
         </a>
       </article>
-    </section>
-
-    <section class="newsletter">
-      <!-- Newsletter -->
     </section>
   </main>
 

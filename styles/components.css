@@ -103,7 +103,7 @@
 
   padding: 0.625rem 1rem;
 
-  border: 1px solid var(--light-gray);
+  border: 1px solid var(--gray);
   border-radius: 2rem;
 
   font: inherit;
@@ -153,6 +153,17 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .main-nav,
+  .site-search {
+    animation: none;
+  }
+
+  .menu-line {
+    transition: none;
+  }
+}
+
 @media (min-width: 768px) {
   .main-nav {
     position: static;
@@ -189,7 +200,7 @@
 
   margin: 0 0 1rem;
 
-  color: var(--orange);
+  color: var(--orange-text);
 
   font-size: 0.75rem;
   font-weight: 700;
@@ -239,7 +250,7 @@
 .topic-filter button {
   padding: 0.5rem 0.875rem;
 
-  border: 1px solid var(--light-gray);
+  border: 1px solid var(--gray);
   border-radius: 2rem;
 
   background-color: var(--off-white);
@@ -272,7 +283,7 @@
 }
 
 .featured-meta span {
-  color: var(--orange);
+  color: var(--orange-text);
 }
 
 .featured-column img {
@@ -310,7 +321,7 @@
 
   margin-top: 1.25rem;
 
-  color: var(--orange);
+  color: var(--orange-text);
 
   font-weight: 700;
 }
@@ -343,13 +354,13 @@
 }
 
 .column-card {
-  --accent: var(--orange);
+  --accent: var(--orange-text);
 
   border-top: 1px solid var(--light-gray);
 }
 
 .column-card.students {
-  --accent: var(--pink);
+  --accent: var(--pink-text);
 }
 
 .column-card.tech {

@@ -5,6 +5,10 @@
   --orange: #ff5e31;
   --mint: #31dcb4;
 
+  /* Accessible text variants of brand colors (>= 4.5:1 on --off-white) */
+  --orange-text: #cc3508;
+  --pink-text: #c72d7e;
+
   --black: #000000;
   --white: #ffffff;
   --off-white: #f7f6f2;

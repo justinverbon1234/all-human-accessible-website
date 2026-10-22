@@ -5,6 +5,10 @@
   background-color: var(--blue);
 }
 
+.site-footer :focus-visible {
+  outline-color: var(--white);
+}
+
 .footer-inner {
   display: grid;
   grid-template-columns: minmax(14rem, 1fr) 2fr;
