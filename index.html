@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Columns | HvanA</title>
+
+    <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/footer.css">
+  </head>
+
+  <!-- Header -->
+
+<body>
+  <header class="site-header">
+    <a href="index.html" class="logo">HvanA</a>
+
+    <nav class="main-nav" id="main-menu">
+      <ul>
+        <li><a href="#">Nieuws</a></li>
+        <li><a href="#">Video</a></li>
+        <li><a href="#">Columns</a></li>
+        <li><a href="#">Opinie</a></li>
+        <li><a href="#">Podcast</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="search-toggle" type="button">
+        <svg class="icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" focusable="false">
+          <circle cx="11" cy="11" r="7" />
+          <path d="m20 20-3.5-3.5" />
+        </svg>
+        <span class="visually-hidden">Zoek</span>
+      </button>
+
+      <button class="menu-toggle" type="button">
+        <svg class="icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"focusable="false">
+          <path class="menu-line menu-line-top" d="M4 7h16" />
+          <path class="menu-line menu-line-mid" d="M4 12h16" />
+          <path class="menu-line menu-line-bottom" d="M4 17h16" />
+        </svg>
+        <span class="visually-hidden">Menu</span>
+      </button>
+    </div>
+
+    <search class="site-search" id="site-search">
+      <form>
+        <label class="visually-hidden" for="search-input">Zoek in HvanA</label>
+        <input id="search-input" type="search" name="q" placeholder="Zoek in HvanA">
+        <button type="submit">Zoek</button>
+      </form>
+    </search>
+  </header>
+
+  <main>
+    <section class="columns-intro">
+      <p class="section-label">Columns</p>
+
+      <h1 id="page-title">Persoonlijke stemmen, heldere standpunten.</h1>
+
+      <p>
+        Nieuwe columns over studeren, de HvA en alles eromheen.
+      </p>
+    </section>
+
+    <section class="topic-filter">
+      <p id="filter-title">Waar wil je over lezen?</p>
+
+      <ul>
+        <li><button class="active" type="button">Alles</button></li>
+        <li><button type="button" >onderwijs</button></li>
+        <li><button type="button" >Studenten</button></li>
+        <li><button type="button" >Tech</button></li>
+      </ul>
+    </section>
+
+    <!-- Nieuwste column -->
+    <article class="featured-column">
+      <p class="featured-meta">
+        <span>Nieuwste</span>
+        <time datetime="2026-09-23">23 sep</time>
+      </p>
+
+      <img
+        src="assets/turkse vrouw.png"
+        alt="Aynur Can op de HvA-campus"
+      >
+
+      <p class="featured-author">Aynur Can</p>
+
+      <h2>
+        ‘Niemand heeft je ingehaald, maar ineens loop je achter’
+      </h2>
+
+      <p class="featured-intro">
+        Over prestatiedruk en waarom iedereen verder lijkt te zijn dan jij.
+      </p>
+
+      <a href="#" class="featured-link">
+        Lees de column →
+      </a>
+    </article>
+
+    <section class="more-columns">
+      <div class="section-heading">
+        <h2 id="more-columns-title">Nieuw & relevant</h2>
+        <a href="#">Alles</a>
+      </div>
+
+      <p class="section-intro">
+        Sneller scannen, minder grote blokken.
+      </p>
+
+      <article class="column-card education">
+        <a href="#">
+          <img
+            src="assets/buiten vrouw.png"
+            alt="Columniste op de HvA-campus"
+          >
+
+          <div class="column-card-content">
+            <p class="column-category">Onderwijs</p>
+
+            <h3>
+              ‘We laten studenten samenwerken zonder ze ooit te leren hoe je dat doet’
+            </h3>
+
+            <p class="column-meta">
+              Jacob Eikelboom ·
+              <time datetime="2026-09-20">20 sep</time>
+            </p>
+          </div>
+        </a>
+      </article>
+
+      <article class="column-card students">
+        <a href="#">
+          <img
+            src="assets/man met krullen.png"
+            alt="Naïm Asbâa in de studieruimte"
+          >
+
+          <div class="column-card-content">
+            <p class="column-category">Studenten</p>
+
+            <h3>
+              ‘De eerste weken voelen voor niemand zo vanzelfsprekend als ze lijken’
+            </h3>
+
+            <p class="column-meta">
+              Naïm Asbâa ·
+              <time datetime="2026-09-18">18 sep</time>
+            </p>
+          </div>
+        </a>
+      </article>
+
+      <article class="column-card tech">
+        <a href="#">
+          <img
+            src="assets/gebouw.png"
+            alt="HvA-gebouw in de steigers"
+          >
+
+          <div class="column-card-content">
+            <p class="column-category">Tech</p>
+
+            <h3>
+              ‘Nog voordat de les is begonnen, staan de chatbots alweer aan’
+            </h3>
+
+            <p class="column-meta">
+              Aynur Can ·
+              <time datetime="2026-09-15">15 sep</time>
+            </p>
+          </div>
+        </a>
+      </article>
+    </section>
+
+    <section class="newsletter">
+      <!-- Newsletter -->
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">HvanA</a>
+
+        <p>
+          Persoonlijke stemmen, heldere standpunten.
+        </p>
+      </div>
+
+      <nav class="footer-nav">
+        <h2 id="footer-heading" class="footer-heading">HvanA</h2>
+
+        <ul>
+          <li><a href="#">Auteurs</a></li>
+          <li><a href="#">Over HvanA</a></li>
+          <li><a href="#">Colofon</a></li>
+          <li><a href="#">Privacyverklaring</a></li>
+          <li><a href="#">Cookievoorkeuren</a></li>
+          <li><a href="#">Adverteren</a></li>
+          <li><a href="#">Werken bij HvanA</a></li>
+          <li><a href="#">Opinie op HvanA</a></li>
+          <li><a href="#">Huisregels</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 HvanA</p>
+      <a href="#top">Terug naar boven ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+
+</html>
