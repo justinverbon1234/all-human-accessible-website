@@ -6,8 +6,7 @@
   color: var(--blue-text);
 }
 
-/* Header toggles: the <summary> of each <details> and the theme checkbox.
-   The icon buttons keep the same styling as before. */
+/* Header toggles: the <summary> of each <details> and the theme checkbox */
 .header-toggle,
 .theme-toggle {
   display: grid;
@@ -45,7 +44,7 @@
 }
 
 /* Theme toggle: a native checkbox. The input itself is the button and the
-   icon is drawn with CSS, so no ARIA is needed for the state or the icon.
+   icon is drawn with CSS.
    The second content line gives the icon an empty accessible alternative
    in browsers that support it. */
 .theme-toggle {

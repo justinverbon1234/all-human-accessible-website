@@ -12,7 +12,6 @@
   --gray: #666661;
   --light-gray: #e8e7e2;
 
-  /* Text-safe variants of the bright brand colors (pass WCAG AA on light surfaces) */
   --blue-text: var(--blue);
   --orange-text: #c2410c;
   --pink-text: #be185d;
@@ -27,9 +26,6 @@
   --page-padding: 1.5rem;
 }
 
-/* Dark mode: CSS owns the default via prefers-color-scheme. The theme
-   checkbox applies dark mode via :has() even without JavaScript; JS only
-   stores the choice as data-theme so it survives a page reload. */
 [data-theme="dark"],
 html:has(.theme-toggle:checked) {
   color-scheme: dark;
@@ -40,8 +36,6 @@ html:has(.theme-toggle:checked) {
   --muted-text: #c3c2bc;
   --border: #454540;
   --hover: #2a2a28;
-
-  /* The bright brand colors pass contrast on dark backgrounds */
   --blue-text: #8ab4ff;
   --orange-text: var(--orange);
   --pink-text: var(--pink);

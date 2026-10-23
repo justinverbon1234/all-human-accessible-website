@@ -25,6 +25,9 @@
   <header class="site-header" id="top">
     <a href="index.html" class="logo">HvanA</a>
 
+    <!-- Navigation menu using <details> to open and close without JavaScript.
+     The <summary> contains the hamburger icon, and <nav> holds the menu links. -->
+
     <details class="site-nav" name="header">
       <summary class="header-toggle">
         <svg class="icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
@@ -45,6 +48,10 @@
         </ul>
       </nav>
     </details>
+
+    <!-- Search menu using <details> to open and close without JavaScript.
+     The <summary> contains the search icon, and <search> holds the search form.
+     Users can enter a search term and submit it using the search button. -->
 
     <details class="site-search" name="header">
       <summary class="header-toggle">
@@ -118,6 +125,11 @@
         Lees de column →
       </a>
     </article>
+
+    <!-- Section displaying more recent and relevant columns.
+     The heading includes a link to view all columns, followed by a short introduction.
+     Each article card contains an image, category, title, author, and publication date.
+     The entire card is clickable, and images load lazily to improve performance. -->
 
     <section class="more-columns">
       <div class="section-heading">
@@ -206,6 +218,10 @@
     </section>
   </main>
 
+    <!-- Footer containing the HvanA logo, a short description, and navigation links.
+     The navigation provides access to information about HvanA, privacy, and other pages.
+     The bottom section displays the copyright year and a link to return to the top of the page. -->
+     
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">

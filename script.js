@@ -1,9 +1,6 @@
 const themeToggle = document.querySelector(".theme-toggle");
 const storedTheme = localStorage.getItem("theme");
 
-/* Theme: CSS owns the default (prefers-color-scheme) and applies dark mode
-   via :has() when the checkbox is checked, so this works without JavaScript.
-   JS only remembers the choice in localStorage and syncs the checkbox. */
 if (storedTheme) {
   document.documentElement.dataset.theme = storedTheme;
   themeToggle.checked = storedTheme === "dark";
@@ -16,11 +13,6 @@ themeToggle.addEventListener("change", () => {
   localStorage.setItem("theme", theme);
 });
 
-/* Menu and search are native <details> elements: opening, closing, the
-   "only one open at a time" behavior and the expanded state are built in.
-   JS only adds what HTML does not have: focus for the search input,
-   Escape and outside click to close, and keeping the menu open on
-   desktop, where its toggle button is hidden. */
 const menu = document.querySelector(".site-nav");
 const search = document.querySelector(".site-search");
 const searchInput = document.querySelector(".site-search input");
