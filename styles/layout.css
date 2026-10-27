@@ -12,18 +12,20 @@
   padding: 2rem var(--page-padding) 1.5rem;
 }
 
+/* The filter lives inside .more-columns, which already supplies the
+   horizontal padding and the surface background. */
 .topic-filter {
-  padding: 0 var(--page-padding) 1.5rem;
+  padding: 0;
+  margin-bottom: 1rem;
 }
 
 .site-header,
 .columns-intro,
-.topic-filter,
 .more-columns {
   background-color: var(--surface);
 }
 
-.topic-filter h2 {
+.topic-filter h3 {
   margin: 0 0 0.75rem;
 
   font-size: 0.875rem;

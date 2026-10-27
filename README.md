@@ -13,7 +13,7 @@ De instructie van deze leertaak staat in [WIKI](https://github.com/fdnd-task/all
 
 ## Beschrijving
 
-Een pagina met columns voor "HvanA", een nieuwsomgeving voor studenten van de HvA. De pagina bevat een introductie, een filter op onderwerpen, een uitgelichte (nieuwste) column en een overzicht van meer columns.
+Een pagina met columns voor "HvanA", een nieuwsomgeving voor studenten van de HvA. De pagina bevat een introductie, een uitgelichte (nieuwste) column en een overzicht van meer columns met daarboven een filter op onderwerpen.
 
 De focus van deze leertaak lag op toegankelijkheid: een skip-link, een zichtbare focus-stijl, voldoende kleurcontrast in beide thema's, een responsive menu en zoekbalk die ook zonder JavaScript werken, en afbeeldingen met goede alt-teksten.
 

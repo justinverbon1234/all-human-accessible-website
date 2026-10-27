@@ -86,17 +86,6 @@
       </p>
     </section>
 
-    <section class="topic-filter">
-      <h2 id="filter-title">Waar wil je over lezen?</h2>
-
-      <ul>
-        <li><button class="active" type="button">Alles</button></li>
-        <li><button type="button">onderwijs</button></li>
-        <li><button type="button">Studenten</button></li>
-        <li><button type="button">Tech</button></li>
-      </ul>
-    </section>
-
     <!-- Nieuwste column -->
     <article class="featured-column">
       <p class="featured-meta">
@@ -128,6 +117,7 @@
 
     <!-- Section displaying more recent and relevant columns.
      The heading includes a link to view all columns, followed by a short introduction.
+     A topic filter lets readers narrow the list by subject.
      Each article card contains an image, category, title, author, and publication date.
      The entire card is clickable, and images load lazily to improve performance. -->
 
@@ -140,6 +130,17 @@
       <p class="section-intro">
         Sneller scannen, minder grote blokken.
       </p>
+
+      <section class="topic-filter">
+        <h3>Waar wil je over lezen?</h3>
+
+        <ul>
+          <li><button class="active" type="button">Alles</button></li>
+          <li><button type="button">onderwijs</button></li>
+          <li><button type="button">Studenten</button></li>
+          <li><button type="button">Tech</button></li>
+        </ul>
+      </section>
 
       <article class="column-card education">
         <a href="#">
@@ -224,13 +225,6 @@
      
   <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-brand">
-        <a href="index.html" class="footer-logo">HvanA</a>
-
-        <p>
-          Persoonlijke stemmen, heldere standpunten.
-        </p>
-      </div>
 
       <nav class="footer-nav">
         <h2 id="footer-heading" class="footer-heading">HvanA</h2>
@@ -255,7 +249,7 @@
     </div>
   </footer>
 
-  <script src="script.js" defer></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
